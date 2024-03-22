@@ -6,7 +6,7 @@ let webServer = new WebServer();
 
 webServer.start()
     .then(() => {
-        console.log('Web Sever started!')
+        console.log('Web Sever started on port 3000!')
     })
     .catch(err => {
         console.error(err)

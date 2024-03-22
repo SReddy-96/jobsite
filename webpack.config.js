@@ -6,15 +6,20 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const moduleObj = {
     rules: [{
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ["babel-loader"],
+    },
+    {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
     }],
 };
 
 const client = {
+    mode: 'development',   // !!!! change when in production
     entry: {
-        'client': './src/client/index.js',
+        'client': './src/client/index.jsx',
     },
     target: 'web',
     output: {
@@ -30,6 +35,7 @@ const client = {
 };
 
 const server = {
+    mode: 'development',   // !!!! change when in production
     entry: {
         'server': './src/server/index.js'
     },

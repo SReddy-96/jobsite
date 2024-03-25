@@ -29,7 +29,8 @@ This project is a Job scrapping web application using my own React template and 
 ## Problems Encountered
 
 - sending `GET` requested to the API.
-- config the webpack file correctly. 
+- config the webpack file correctly.
+- correctly passing props from one component to another.
 
 ## New Skills
 

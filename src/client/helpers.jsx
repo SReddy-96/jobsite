@@ -1,18 +1,21 @@
-async function getJobData(searchValue, locationValue) { // Pass search and location as arguments
-  try {
-    const apiUrl = "https://remoteok.io/api";
-    const queryString = new URLSearchParams({
-      tags: searchValue,
-      location: locationValue,
-    });
+// import axios from 'axios';
+// import React from 'react';
 
-    const response = await axios.get(`${apiUrl}?${queryString}`); // Use template literal
-    return response.data; // No need for intermediate data assignment
+// async function getJobData(searchValue, locationValue) { // Pass search and location as arguments
+//   try {
+//     const apiUrl = "https://remoteok.io/api";
+//     const queryString = new URLSearchParams({
+//       tags: searchValue,
+//       location: locationValue,
+//     });
 
-  } catch (error) {
-    console.error('Error fetching job data:', error);
-    throw new Error('Error fetching job data'); // Throw an error for handling
-  }
-}
+//     const response = await axios.get(`${apiUrl}?${queryString}`); // Use template literal
+//     return response.data; // No need for intermediate data assignment
 
-export default getJobData;
+//   } catch (error) {
+//     console.error('Error fetching job data:', error);
+//     throw new Error('Error fetching job data'); // Throw an error for handling
+//   }
+// }
+
+// export default getJobData;

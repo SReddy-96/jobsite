@@ -8,20 +8,6 @@ export default class WebServer {
         this.app = express()
         this.app.use(express.static('dist/public'))
 
-        // making a get request server side
-        this.app.get('/api/jobs', async (req, res) => {
-            try {
-                // Make a request to the third-party API
-                const response = await axios.get('https://remoteok.io/api');
-
-                // Send the data back to the client
-                res.json(response.data);
-            } catch (error) {
-                console.error('Error fetching job data:', error);
-                res.status(500).send('Error fetching job data');
-            }
-        });
-
     }
 
     start() {

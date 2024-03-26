@@ -1,23 +1,20 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 import './styles/apiJobs.css';
 
 
 function ApiJobs({ jobs, isLoading, error }) {
-
-    const hasJobs = jobs && jobs.length > 0;
-    if(!hasJobs){
-        throw new Error("No jobs available!")
-    }
 
     return (
         <div className="row">
             {isLoading ? (
                 <p id="loadingAndErrorApi" >Loading jobs...</p>
             ) : error ? (
-                <p id="loadingAndErrorApi" >Error fetching jobs: {error.message}</p>
-            ) : (
-                jobs.filter((job) => job.id).map((job) => (
+                <p id="loadingAndErrorApi" >Error fetching jobs: {error.message}
+                    {console.error('Error fetching jobs:', error)}
+                </p>
+            ) : Array.isArray(jobs) && jobs.length > 0 ? (
+                jobs[1] ? ( // Check if the second element exists (the actual job data)
+                jobs.slice(1).map((job) => ( // This is to get rid of the T&Cs from the third party API
                     <div className="col-sm-4 my-2 my-sm-1" key={job.id}>
                         <div className="card h-100 d-flex flex-column shadow">
                             <div className="card-body">
@@ -31,8 +28,14 @@ function ApiJobs({ jobs, isLoading, error }) {
                             </div>
                         </div>
                     </div>
-                ))
-            )}
+                    ))
+                    ) : (
+                        <p id="loadingAndErrorApi">No jobs available.</p>
+                    )
+                ) : (
+                    <p id="loadingAndErrorApi">No jobs available.</p>
+                )
+            }
         </div>
     );
 }

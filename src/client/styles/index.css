@@ -1,0 +1,12 @@
+:root {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+body {
+    background-color: #ddd;
+    font-family: "Montserrat", sans-serif;
+}
